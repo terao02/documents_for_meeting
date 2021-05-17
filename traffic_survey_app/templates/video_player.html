@@ -1,0 +1,108 @@
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>sample</title>
+</head>
+<body>
+	<video src={{file_name}} width="600" height="300" controls id="mv"
+		   style="position:absolute; top:200; left:450px">
+	</video>
+	<form method="post" action="/add_data" enctype="multipart/form-data">
+	<!-- 車種カウントボタン -->
+		<input type="button" value="歩行者" id="pedestrian"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:150px; left:10px">
+		<input type="text" value="0" id="pedestrian_num" name="pedestrian_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:150px; left:130px">
+
+		<input type="button" value="自転車" id="bicycle"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:150px; left:250px">
+		<input type="text" value="0" id="bicycle_num" name="bicycle_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:150px; left:370px">
+
+		<input type="button" value="動力付き二輪車" id="motorbike"
+			   style="position:absolute; font-size:15px; width:120px; height:50px; top:250px; left:10px">
+		<input type="text" value="0" id="motorbike_num" name="motorbike_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:250px; left:130px">
+
+		<input type="button" value="乗用車" id="passenger_car"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:250px; left:250px">
+		<input type="text" value="0" id="passenger_car_num" name="passenger_car_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:250px; left:370px">
+
+		<input type="button" value="小型貨物車" id="small_freight_car"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:350px; left:10px">
+		<input type="text" value="0" id="small_freight_car_num" name="small_freight_car_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:350px; left:130px">
+
+		<input type="button" value="バス" id="bus"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:350px; left:250px">
+		<input type="text" value="0" id="bus_num" name="bus_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:350px; left:370px">
+
+		<input type="button" value="普通貨物車" id="ordinary_freight_car"
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:450px; left:10px">
+		<input type="text" value="0" id="ordinary_freight_car_num" name="ordinary_freight_car_num"
+			   style="position:absolute; text-align: right; font-size:20px;
+			          width:50px; height:50px; top:450px; left:130px">
+
+    	<input type='submit' value='保存'
+			   style="position:absolute; font-size:20px; width:120px; height:50px; top:550px; left:10px">
+
+		<!-- スピード調整ボタン -->
+		<input type="button" onclick="pSpeed(1)" value="x1"
+			   style="position:absolute; top:510px; left:700px">
+
+		<input type="button" onclick="pSpeed(2)" value="x2"
+			   style="position:absolute; top:510px; left:750px">
+
+		<input type="button" onclick="pSpeed(5)" value="x5"
+			   style="position:absolute; top:510px; left:800px">
+	</form>
+
+	<script>
+		function pSpeed(speed_seed)
+		{
+		    var media = document.getElementById('mv');
+  			media.playbackRate = speed_seed;
+		}
+		document.getElementById("pedestrian").onclick = function() {
+			number = Number(document.getElementById("pedestrian_num").value)
+			document.getElementById("pedestrian_num").value = number + 1;
+		};
+		document.getElementById("bicycle").onclick = function() {
+			number = Number(document.getElementById("bicycle_num").value)
+			document.getElementById("bicycle_num").value = number + 1;
+		};
+
+		document.getElementById("motorbike").onclick = function() {
+			number = Number(document.getElementById("motorbike_num").value)
+			document.getElementById("motorbike_num").value = number + 1;
+		};
+
+		document.getElementById("passenger_car").onclick = function() {
+			number = Number(document.getElementById("passenger_car_num").value)
+			document.getElementById("passenger_car_num").value = number + 1;
+		};
+
+		document.getElementById("small_freight_car").onclick = function() {
+			number = Number(document.getElementById("small_freight_car_num").value)
+			document.getElementById("small_freight_car_num").value = number + 1;
+		};
+
+		document.getElementById("bus").onclick = function() {
+			number = Number(document.getElementById("bus_num").value)
+			document.getElementById("bus_num").value = number + 1;
+		};
+		document.getElementById("ordinary_freight_car").onclick = function() {
+			number = Number(document.getElementById("ordinary_freight_car_num").value)
+			document.getElementById("ordinary_freight_car_num").value = number + 1;
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show_table</title>
+</head>
+<body>
+<table border="1">
+    <thread>
+        <tr style="text-align: center;">
+            <th>動画名</th>
+            <th>歩行者</th>
+            <th>自転車</th>
+            <th>動力付き二輪車</th>
+            <th>乗用車</th>
+            <th>小型貨物車</th>
+            <th>バス</th>
+            <th>普通貨物</th>
+        </tr>
+    </thread>
+    <tbody>
+        {% for samp in meta_date %}
+        <tr style="text-align: right;">
+            {% if samp.long_name == 1 %}
+            <td>{{ samp.name[:10] + '... '+ 'mp4' }}</td>
+            {% else %}
+            <td>{{ samp.name }}</td>
+            {% endif %}
+            <td>{{ samp.pedestrian }}</td>
+            <td>{{ samp.bicycle }}</td>
+            <td>{{ samp.motorbike }}</td>
+            <td>{{ samp.passenger_car }}</td>
+            <td>{{ samp.small_freight_car }}</td>
+            <td>{{ samp.bus }}</td>
+            <td>{{ samp.ordinary_freight_car }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+<form method="post" action="/download" enctype="multipart/form-data">
+        <input type="submit" value="ダウンロード"
+               style="position:absolute; font-size:20px; width:200px; height:50px; top:20px; left:700px">
+</form>
+<form method="post" action="/init_table" enctype="multipart/form-data">
+        <input type="submit" value="初期化"
+               style="position:absolute; font-size:20px; width:200px; height:50px; top:120px; left:700px">
+</form>
+<form method="post" action="/" enctype="multipart/form-data">
+        <input type="submit" value="メニューへ戻る"
+               style="position:absolute; font-size:20px; width:200px; height:50px; top:220px; left:700px">
+</form>
+</body>
+</html>

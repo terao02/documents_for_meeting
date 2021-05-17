@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if error_message %}
+{% for message in error_message %}
+<p>{{message}}</p>
+{% endfor %}
+{% endif %}
+<form method="post" action="/upload" enctype="multipart/form-data">
+  <p><input type='file' id="files" name='files' multiple='multiple'> </p>
+    <input type='submit' value='upload'>
+</form>
+{% endblock %}
