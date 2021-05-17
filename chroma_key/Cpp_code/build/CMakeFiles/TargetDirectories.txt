@@ -1,0 +1,3 @@
+/Users/madao/CPP_training/test_opencv/build/CMakeFiles/rebuild_cache.dir
+/Users/madao/CPP_training/test_opencv/build/CMakeFiles/edit_cache.dir
+/Users/madao/CPP_training/test_opencv/build/CMakeFiles/new_croma_key.dir
